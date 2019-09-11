@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {Profile} from '../class/profile';
 
 @Component({
   selector: 'app-profile',
@@ -6,8 +7,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent implements OnInit {
+    public model: Profile;
 
-  constructor() { }
+  constructor() {
+    this.model = new Profile();
+    this.model.name = 'Dexter';
+    this.model.description = 'Very Handsome Guy';
+    this.model.phone = 123123;
+  }
 
   ngOnInit() {
   }

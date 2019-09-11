@@ -10,6 +10,7 @@ import {
   MatTabsModule,
   MatToolbarModule,
 } from '@angular/material';
+import {MatInputModule} from '@angular/material/input';
 
 
 
@@ -23,7 +24,8 @@ import {
     MatSnackBarModule,
     MatDialogModule,
     MatSelectModule,
-    MatToolbarModule
+    MatToolbarModule,
+    MatInputModule
   ],
   exports: [
     MatCardModule,
@@ -33,7 +35,8 @@ import {
     MatSnackBarModule,
     MatDialogModule,
     MatSelectModule,
-    MatToolbarModule
+    MatToolbarModule,
+    MatInputModule
   ]
 })
 export class MaterialModule { }

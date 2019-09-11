@@ -8,9 +8,9 @@ import {Component, Input, OnInit} from '@angular/core';
 export class NavComponent implements OnInit {
 
   constructor() { }
-  @Input() name: string;
 
   navLinks = [
+    {label: 'NerdFlirt', path: 'home', src: '../../assets/nerdflirt_logo.png'},
     {label: 'My Profile', path: 'profile'},
     {label: 'Search', path: 'search'},
     {label: 'Chat', path: 'chat'}

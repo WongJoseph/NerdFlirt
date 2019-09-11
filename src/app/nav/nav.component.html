@@ -1,14 +1,13 @@
 <div class="padding-bot">
-  <mat-toolbar>
-    <span>{{name}}</span>
-      <nav mat-tab-nav-bar>
-        <a mat-tab-link
-           *ngFor="let link of navLinks"
-           [routerLink]="link.path"
-           routerLinkActive #rla="routerLinkActive"
-           [active]="rla.isActive">
-          {{link.label}}
-        </a>
-      </nav>
+  <mat-toolbar color="accent">
+    <div class="example-button-row">
+      <a mat-button
+         *ngFor="let link of navLinks"
+         [routerLink]="link.path">
+<!--        <img class="img-logo" *ngIf="link.src" src="{{link.src}}">-->
+        <span><strong>{{link.label}}</strong></span>
+      </a>
+      <div class="flex-spacer"></div>
+    </div>
   </mat-toolbar>
 </div>
