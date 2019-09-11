@@ -1,1 +1,22 @@
-<p>chat works!</p>
+<div class="container">
+  <mat-card class="example-card">
+    <mat-card-content>
+      <div class="chat-box">
+        <mat-list>
+          <mat-list-item *ngFor="let message of messages; let last = last;">
+            <img matListAvatar src="../../assets/nerdflirt_logo.png" alt="...">
+            <h3 matLine> {{message.from}} </h3>
+            <p matLine>
+              <span> {{message.subject}} </span>
+              <span> -- {{message.content}} </span>
+            </p>
+            <!--        <mat-divider *ngIf="!last"></mat-divider>-->
+          </mat-list-item>
+        </mat-list>
+      </div>
+      <mat-form-field class="example-full-width">
+        <input matInput placeholder="Type to chat" autocomplete="off" (submit)="$event.preventDefault()">
+      </mat-form-field>
+    </mat-card-content>
+  </mat-card>
+</div>
