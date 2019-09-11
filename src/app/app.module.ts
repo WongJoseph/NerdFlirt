@@ -11,6 +11,8 @@ import { ProfileComponent } from './profile/profile.component';
 import { SearchComponent } from './search/search.component';
 import { ChatComponent } from './chat/chat.component';
 import {SearchService} from './Services/search.service';
+import {MessageService} from './Services/message.service';
+import {FormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -23,11 +25,12 @@ import {SearchService} from './Services/search.service';
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     BrowserAnimationsModule,
     MaterialModule,
     AppRoutingModule
   ],
-  providers: [SearchService],
+  providers: [SearchService, MessageService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

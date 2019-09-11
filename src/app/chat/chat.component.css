@@ -8,4 +8,30 @@
 
 .chat-box {
   height: 400px;
+  overflow: auto;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(242, 242, 242, 0);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(221, 221, 221, 0);
+  border-radius: 3px;
+}
+.chat-box:hover::-webkit-scrollbar-thumb {
+  background: rgba(242, 242, 242, 1);
+}
+.chat-box.scrolling::-webkit-scrollbar-thumb,
+::-webkit-scrollbar-thumb:horizontal:hover,
+::-webkit-scrollbar-thumb:vertical:hover {
+  background: rgba(153, 153, 153, 1);
+}
+::-webkit-scrollbar-thumb:horizontal:active,
+::-webkit-scrollbar-thumb:vertical:active {
+  background: rgba(153, 153, 153, 1);
 }
