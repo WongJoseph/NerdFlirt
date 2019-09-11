@@ -3,7 +3,7 @@
     <mat-card-content>
       <mat-list>
         <mat-form-field class="example-full-width">
-          <input matInput placeholder="Search" autocomplete="off">
+          <input matInput placeholder="Search" autocomplete="off" (submit)="$event.preventDefault()">
         </mat-form-field>
         <mat-list-item *ngFor="let message of messages; let last = last;">
           <img matListAvatar src="../../assets/nerdflirt_logo.png" alt="...">
