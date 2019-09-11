@@ -10,6 +10,7 @@ import { NavComponent } from './nav/nav.component';
 import { ProfileComponent } from './profile/profile.component';
 import { SearchComponent } from './search/search.component';
 import { ChatComponent } from './chat/chat.component';
+import {SearchService} from './Services/search.service';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,7 @@ import { ChatComponent } from './chat/chat.component';
     MaterialModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [SearchService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

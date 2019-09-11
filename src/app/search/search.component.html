@@ -1,20 +1,20 @@
 <div class="container">
   <mat-card class="example-card">
-    <mat-list>
-      <form class="example-form">
+    <mat-card-content>
+      <mat-list>
         <mat-form-field class="example-full-width">
-          <input matInput placeholder="Search">
+          <input matInput placeholder="Search" autocomplete="off">
         </mat-form-field>
-      </form>
-      <mat-list-item *ngFor="let message of messages; let last = last;">
-        <img matListAvatar src="../../assets/nerdflirt_logo.png" alt="...">
-        <h3 matLine> {{message.from}} </h3>
-        <p matLine>
-          <span> {{message.subject}} </span>
-          <span class="demo-2"> -- {{message.content}} </span>
-        </p>
-<!--        <mat-divider *ngIf="!last"></mat-divider>-->
-      </mat-list-item>
-    </mat-list>
+        <mat-list-item *ngFor="let message of messages; let last = last;">
+          <img matListAvatar src="../../assets/nerdflirt_logo.png" alt="...">
+          <h3 matLine> {{message.from}} </h3>
+          <p matLine>
+            <span> {{message.subject}} </span>
+            <span class="demo-2"> -- {{message.content}} </span>
+          </p>
+          <!--        <mat-divider *ngIf="!last"></mat-divider>-->
+        </mat-list-item>
+      </mat-list>
+    </mat-card-content>
   </mat-card>
 </div>
