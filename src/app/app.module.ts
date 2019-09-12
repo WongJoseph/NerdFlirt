@@ -13,6 +13,7 @@ import { ChatComponent } from './chat/chat.component';
 import {SearchService} from './Services/search.service';
 import {MessageService} from './Services/message.service';
 import {FormsModule} from '@angular/forms';
+import {ProfileService} from './Services/profile.service';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,11 @@ import {FormsModule} from '@angular/forms';
     MaterialModule,
     AppRoutingModule
   ],
-  providers: [SearchService, MessageService],
+  providers: [
+    SearchService,
+    MessageService,
+    ProfileService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

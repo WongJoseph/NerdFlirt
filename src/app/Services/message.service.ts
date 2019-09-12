@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {MatSnackBar} from '@angular/material/snack-bar';
 
 @Injectable({
@@ -6,7 +6,8 @@ import {MatSnackBar} from '@angular/material/snack-bar';
 })
 export class MessageService {
 
-  constructor(private snackBar: MatSnackBar) { }
+  constructor(private snackBar: MatSnackBar) {
+  }
 
   showMessage(message: string, action: string) {
     this.snackBar.open(message, action, {

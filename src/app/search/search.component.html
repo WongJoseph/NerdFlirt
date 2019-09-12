@@ -3,17 +3,17 @@
     <mat-card-content>
       <mat-list>
         <mat-form-field class="example-full-width">
-          <input matInput placeholder="Search" autocomplete="off" (submit)="$event.preventDefault()">
+          <input matInput placeholder="Search" autocomplete="off" [(ngModel)]="query" (ngModelChange)='changed($event)'  (submit)="$event.preventDefault()">
         </mat-form-field>
-        <mat-list-item *ngFor="let message of messages; let last = last;">
-          <img matListAvatar src="../../assets/nerdflirt_logo.png" alt="...">
-          <h3 matLine> {{message.from}} </h3>
+        <a class="no-link" mat-list-item *ngFor="let message of messages; let last = last;" routerLink="/profile/{{message.id}}">
+          <h3 matLine> {{message.name}} </h3>
+          <img matListAvatar src="{{message.src}}" alt="...">
           <p matLine>
-            <span> {{message.subject}} </span>
-            <span class="demo-2"> -- {{message.content}} </span>
+            <span> {{message.description}} </span>
+            <!--            <span class="demo-2"> &#45;&#45; {{message.content}} </span>-->
           </p>
           <!--        <mat-divider *ngIf="!last"></mat-divider>-->
-        </mat-list-item>
+        </a>
       </mat-list>
     </mat-card-content>
   </mat-card>

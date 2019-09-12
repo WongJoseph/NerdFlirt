@@ -5,3 +5,6 @@
   min-width: 400px;
 }
 
+.no-link {
+  text-decoration: none;
+}

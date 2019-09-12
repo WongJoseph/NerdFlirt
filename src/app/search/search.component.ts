@@ -1,6 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {FormControl, Validators} from '@angular/forms';
 import {SearchService} from '../Services/search.service';
+import {ProfileService} from '../Services/profile.service';
+import {Profile} from '../class/profile';
+import {Subject} from 'rxjs';
+import {debounceTime, distinctUntilChanged} from 'rxjs/operators';
 
 @Component({
   selector: 'app-search',
@@ -9,17 +13,38 @@ import {SearchService} from '../Services/search.service';
 })
 export class SearchComponent implements OnInit {
 
-  messages = [
-    {from: 'Dexter', subject: 'Like to Party', content: 'Test'},
-    {from: 'Joseph', subject: 'Like to Drink', content: 'Test'},
-    {from: 'Daniel', subject: 'Like to Car', content: 'Test'},
-    {from: 'Desmond', subject: 'Like to Talk', content: 'Test'},
-    {from: 'Epis', subject: 'Like to Game', content: 'Test'}
-  ];
+  messages: Profile[];
+  query: string;
+  modelChanged: Subject<string> = new Subject<string>();
 
-  constructor(private searchService: SearchService) { }
-
-  ngOnInit() {
+  constructor(
+    private searchService: SearchService,
+    private profileService: ProfileService
+  ) {
+    this.modelChanged.pipe(
+      debounceTime(300),
+      distinctUntilChanged())
+      .subscribe(query => {
+        this.query = query;
+        this.searchProfiles();
+      });
   }
 
+  ngOnInit() {
+    this.getProfiles();
+  }
+
+  getProfiles(): void {
+    this.profileService.getProfiles()
+      .subscribe(profiles => this.messages = profiles);
+  }
+
+  searchProfiles(): void {
+    this.searchService.searchProfile(this.query)
+      .subscribe(profiles => this.messages = profiles);
+  }
+
+  changed(text: string) {
+    this.modelChanged.next(text);
+  }
 }
