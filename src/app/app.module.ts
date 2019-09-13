@@ -14,6 +14,7 @@ import {SearchService} from './Services/search.service';
 import {MessageService} from './Services/message.service';
 import {FormsModule} from '@angular/forms';
 import {ProfileService} from './Services/profile.service';
+import { ProfileDialogComponent } from './profile/dialog/profile-dialog/profile-dialog.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import {ProfileService} from './Services/profile.service';
     NavComponent,
     ProfileComponent,
     SearchComponent,
-    ChatComponent
+    ChatComponent,
+    ProfileDialogComponent
   ],
   imports: [
     BrowserModule,
