@@ -3,9 +3,12 @@ import {Profile} from '../class/profile';
 import {ActivatedRoute} from '@angular/router';
 import {ProfileService} from '../Services/profile.service';
 import {MAT_DIALOG_DATA, MatDialog, MatDialogRef} from '@angular/material/dialog';
+import {ProfileDialogComponent} from './dialog/profile-dialog/profile-dialog.component';
+import {MessageService} from '../Services/message.service';
 
 export interface DialogData {
   name: string;
+  message: string;
 }
 
 @Component({
@@ -14,13 +17,15 @@ export interface DialogData {
   styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent implements OnInit {
-    public model: Profile;
+  public model: Profile;
 
   constructor(
     private route: ActivatedRoute,
     private profileService: ProfileService,
+    private messageService: MessageService,
     public dialog: MatDialog
-  ) {}
+  ) {
+  }
 
   ngOnInit() {
     this.getProfile();
@@ -28,13 +33,16 @@ export class ProfileComponent implements OnInit {
 
   openDialog(): void {
     const dialogRef = this.dialog.open(ProfileDialogComponent, {
-      width: '250px',
-      height: '250px',
-      data: {name: this.model.name}
+      width: '300x',
+      data: {name: this.model.name, message: ''},
+      restoreFocus: false,
+      autoFocus: true
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
+      if (result) {
+        this.messageService.showMessage(result, 'Ok');
+      }
     });
   }
 
@@ -44,23 +52,3 @@ export class ProfileComponent implements OnInit {
       .subscribe(model => this.model = model);
   }
 }
-
-@Component({
-  selector: 'app-profile-dialog',
-  templateUrl: './dialog/profile-dialog/profile-dialog.component.html',
-  styleUrls: ['./dialog/profile-dialog/profile-dialog.component.css']
-})
-export class ProfileDialogComponent {
-
-  constructor(
-    public dialogRef: MatDialogRef<ProfileDialogComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: DialogData
-  ) {
-  }
-
-  onNoClick(): void {
-    this.dialogRef.close();
-  }
-
-}
-

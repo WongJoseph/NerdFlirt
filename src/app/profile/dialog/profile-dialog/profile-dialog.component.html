@@ -1,10 +1,10 @@
-<h1 mat-dialog-title>Hi {{data.name}}</h1>
+<h1 mat-dialog-title>Send a Message to {{data.name}}</h1>
 <div mat-dialog-content>
-  <p>What's your favorite animal?</p>
-  <mat-form-field>
-    <input matInput [(ngModel)]="data.name">
+  <mat-form-field class="dialog-message" >
+    <textarea matInput matTextareaAutosize placeholder="Leave a comment" [(ngModel)]="data.message"></textarea>
   </mat-form-field>
 </div>
 <div mat-dialog-actions>
   <button mat-button (click)="onNoClick()">No Thanks</button>
+  <button mat-button [mat-dialog-close]="data.message">Send</button>
 </div>

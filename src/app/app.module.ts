@@ -33,6 +33,7 @@ import { ProfileDialogComponent } from './profile/dialog/profile-dialog/profile-
     MaterialModule,
     AppRoutingModule
   ],
+  entryComponents: [ProfileComponent, ProfileDialogComponent],
   providers: [
     SearchService,
     MessageService,

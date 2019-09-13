@@ -7,12 +7,12 @@ import {SearchComponent} from './search/search.component';
 import {ChatComponent} from './chat/chat.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/home', pathMatch: 'full' },
-  { path: 'home', component: HomeComponent },
+  { path: 'home', redirectTo: '/', pathMatch: 'full'},
   { path: 'profile/:id', component: ProfileComponent},
   { path: 'profile', component: ProfileComponent},
   { path: 'search', component: SearchComponent},
-  { path: 'chat', component: ChatComponent}
+  { path: 'chat', component: ChatComponent},
+  { path: '',  component: HomeComponent  }
 ];
 
 @NgModule({
