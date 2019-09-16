@@ -16,6 +16,6 @@ export class SearchService {
   }
 
   searchProfile(query: string): Observable<Profile[]> {
-    return of(this.profiles.filter(profiles => profiles.name.toLowerCase().indexOf(query.toLowerCase()) > -1));
+    return of(this.profiles.filter(profiles => profiles.name.toLowerCase().startsWith(query.toLowerCase())));
   }
 }
